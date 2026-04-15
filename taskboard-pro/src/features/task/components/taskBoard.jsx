@@ -1,12 +1,17 @@
-import { useState } from "react"
+import { useReducer, useState } from "react"
+import { HTML_TAGS } from "../../../shared/constants/html-tags.constants"
+import { TASK_UI_TEXT } from "../constants/task-ui.constants"
 import { TaskForm } from "./TaskForm"
 import { TaskList } from "./TaskList"
-import { TASK_UI_TEXT } from "../constants/task-ui.constants"
-import { HTML_TAGS } from "../../../shared/constants/html-tags.constants" 
+import { taskReducer } from "../reducer/task.reducer" 
+import { TASK_ACTION_TYPES } from "../reducer/task-action-types"
 
 export function TaskBoard() {
   const [taskText, setTaskText] = useState("")
-  const [tasks, setTasks] = useState([])
+  const [tasks, dispatch] = useReducer(taskReducer, []) 
+
+  const SectionTag = HTML_TAGS.SECTION
+  const TitleTag = HTML_TAGS.H2
 
   const handleTaskTextChange = (event) => {
     setTaskText(event.target.value)
@@ -22,18 +27,18 @@ export function TaskBoard() {
       title: taskText,
       completed: false,
     }
+    
+    dispatch({ 
+      type: TASK_ACTION_TYPES.ADD_TASK,
+      payload: newTask,
+    })
 
-    setTasks([...tasks, newTask])
     setTaskText("")
   }
 
-  const SectionTag = HTML_TAGS.SECTION
-  const H2Tag = HTML_TAGS.H2
-
-
   return (
     <SectionTag>
-      <H2Tag>{TASK_UI_TEXT.BOARD_TITLE}</H2Tag>
+      <TitleTag>{TASK_UI_TEXT.BOARD_TITLE}</TitleTag>
 
       <TaskForm
         taskText={taskText}
