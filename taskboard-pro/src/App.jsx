@@ -1,12 +1,16 @@
 import './App.css'
-import { TaskBoard } from "./features/task/components/taskBoard"
+import { HTML_TAGS } from "../src/shared/constants/hmtl-tags.constants.js"
+import { TaskBoard } from "../src/features/task/components/taskBoard.jsx"
 
 function App() {
+  const MainTag = HTML_TAGS.MAIN
+  const TitleTag = HTML_TAGS.H1
+
   return (
-    <main>
-      <h1>TaskBoard Hooks Lab</h1>
+    <MainTag>
+      <TitleTag>TaskBoard Hooks Lab</TitleTag>
       <TaskBoard />
-    </main>
+    </MainTag>
   )
 }
 
