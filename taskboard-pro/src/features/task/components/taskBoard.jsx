@@ -2,7 +2,7 @@ import { useState } from "react"
 import { TaskForm } from "./TaskForm"
 import { TaskList } from "./TaskList"
 import { TASK_UI_TEXT } from "../constants/task-ui.constants"
-import { HTML_TAGS } from "../../../shared/constants/hmtl-tags.constants" 
+import { HTML_TAGS } from "../../../shared/constants/html-tags.constants" 
 
 export function TaskBoard() {
   const [taskText, setTaskText] = useState("")

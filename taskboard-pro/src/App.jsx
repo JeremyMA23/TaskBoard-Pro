@@ -1,5 +1,5 @@
 import './App.css'
-import { HTML_TAGS } from "../src/shared/constants/hmtl-tags.constants.js"
+import { HTML_TAGS } from "../src/shared/constants/html-tags.constants.js"
 import { TaskBoard } from "../src/features/task/components/taskBoard.jsx"
 
 function App() {
