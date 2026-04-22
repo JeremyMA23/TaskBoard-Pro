@@ -1,6 +1,6 @@
 import './App.css'
-import { HTML_TAGS } from "../src/shared/constants/html-tags.constants.js"
-import { TaskBoard } from "../src/features/task/components/taskBoard.jsx"
+import { HTML_TAGS } from "./shared/constants/html-tags.constants.js"
+import { TaskBoard } from "./features/task/components/taskBoard.jsx"
 
 function App() {
   const MainTag = HTML_TAGS.MAIN
